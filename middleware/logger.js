@@ -4,6 +4,8 @@ const fs = require("fs")
 const fsPromises = require("fs").promises
 const path = require("path")
 
+
+
 const logEvents = async(message, logFileName) => {
 
     const dateTime = format(new Date(), "dd/MM/yyyy\tHH:mm:ss")
@@ -26,7 +28,7 @@ const logEvents = async(message, logFileName) => {
 
 
 const logger = (req, res, next) => {
-    logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, "reqLog.log")
+    logEvents(`${req.method}\t${req.url}\t${req.headers.origin || "Unknown User"}`, "reqLog.log")
 
     console.log(`${req.method}\t${req.path}`)
 
