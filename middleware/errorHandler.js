@@ -1,14 +1,11 @@
 const path = require("path")
 const {logEvents, logger} = require(path.join(__dirname,"logger.js"))
-const fsPromises = require("fs").promises
-const fs = require("fs")
 
 
 
 const errorHandler = async (err, req, res, next) => {
 
     console.log("Errorhandler Activated")
-
 
     await logEvents(`${err.name} : ${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}`, "errLog.log")
 
@@ -22,7 +19,8 @@ const errorHandler = async (err, req, res, next) => {
 
   
     console.log("ErrorHandler run completely")
-}
 
+    next()
+}
 
 module.exports = {errorHandler}
