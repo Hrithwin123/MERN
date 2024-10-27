@@ -15,7 +15,9 @@ const errorHandler = async (err, req, res, next) => {
 
     res.status(status)
 
-    res.json({message : err.message})
+    
+    await res.json({message : err.message})
+    
 
   
     console.log("ErrorHandler run completely")

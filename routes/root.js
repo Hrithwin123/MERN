@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const path = require("path")
+const userRoutes = require(path.join(__dirname, "userRoutes"))
 
 
 router.get(["/","/index", "/index.html"], (req, res) => {
@@ -9,6 +10,7 @@ router.get(["/","/index", "/index.html"], (req, res) => {
 
 })
 
+router.use(userRoutes)
 
 router.all("*", (req, res) => {    //404 Page
     
