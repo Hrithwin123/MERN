@@ -20,7 +20,6 @@ const getAllUsers = asyncHandler(async(req, res) => {
 
     res.json(users)
 
-    
 })
 
 
@@ -32,9 +31,9 @@ const createNewUser = asyncHandler(async(req, res) => {
 
     console.log(`data recieved from form : ${req.body}`)
     
-    const {username, password, roles } = req.body
+    const {username, password, roles} = req.body
     
-    console.log(`Roles : ${roles}`)
+
     //confirming data
     if(!username || !password){
         if(roles){
